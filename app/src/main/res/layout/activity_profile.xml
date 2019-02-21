@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,16 +10,16 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="0dp">
+        <!--android:theme="@style/AppTheme.AppBarOverlay"-->
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:layout_scrollFlags="scroll|enterAlways" />
+        <!--app:popupTheme="@style/AppTheme.PopupOverlay"-->
 
     </android.support.design.widget.AppBarLayout>
 
@@ -57,12 +56,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
-            android:hint="@string/prompt_password"
-            android:imeActionId="@+id/login"
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true" />
+        <!--android:imeActionId="@+id/login"-->
+        <!--android:hint="@string/prompt_password"-->
 
         <EditText
             android:id="@+id/newPassword"
@@ -70,11 +69,11 @@
             android:layout_height="wrap_content"
             android:focusableInTouchMode="true"
             android:hint="@string/new_pass"
-            android:imeActionId="@+id/login"
             android:imeOptions="actionUnspecified"
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true" />
+        <!--android:imeActionId="@+id/login"-->
 
         <Button
             android:id="@+id/changeEmail"
