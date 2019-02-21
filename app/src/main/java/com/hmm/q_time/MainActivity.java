@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
         QueueFragment.OnFragmentInteractionListener, NearbyFragment.OnFragmentInteractionListener,
-        MessageFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener  {
+        MessageFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

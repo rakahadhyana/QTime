@@ -1,12 +1,14 @@
 package com.hmm.q_time;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 
 /**
@@ -17,7 +19,7 @@ import android.view.ViewGroup;
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,6 +28,7 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ImageButton mGeneralButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +67,16 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        mGeneralButton = v.findViewById(R.id.general_button);
+        mGeneralButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(getContext(), GetQueueActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
