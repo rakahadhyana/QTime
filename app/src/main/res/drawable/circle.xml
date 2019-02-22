@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
     <solid android:color="#48b3ff"/>
+=======
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+
+    <solid android:color="@color/white" />
+>>>>>>> e68179a8bc70f1a79d99b10c99f6a6cdc3e87815
 </shape>
