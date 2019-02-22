@@ -31,4 +31,5 @@
     <string name="app_name">Q-Time</string>
     <string name="profile_fragment">Profile Fragment</string>
     <string name="sign_out">X</string>
+    <string name="input_placeholder">Write a message</string>
 </resources>
