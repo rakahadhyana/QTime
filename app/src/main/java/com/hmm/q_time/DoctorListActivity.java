@@ -8,7 +8,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class GetQueueActivity extends AppCompatActivity {
+public class DoctorListActivity extends AppCompatActivity {
     private static final String TAG = "ListDoctorActivity";
 
     //vars
@@ -18,7 +18,7 @@ public class GetQueueActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_queue);
+        setContentView(R.layout.activity_doctor_list);
         Log.d(TAG, "onCreate: started.");
         initSeedDoctor();
         initRecyclerView();

@@ -72,7 +72,7 @@ public class HomeFragment extends Fragment{
         mGeneralButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntent = new Intent(getContext(), GetQueueActivity.class);
+                Intent mIntent = new Intent(getContext(), DoctorListActivity.class);
                 startActivity(mIntent);
             }
         });
