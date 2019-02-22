@@ -17,17 +17,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
+            android:gravity="center"
             android:text="@string/app_name"
-            android:drawableStart="@drawable/logo"
-            android:drawablePadding="4dp"/>
+            android:textColor="#000"
+            android:drawableStart="@drawable/ic_hourglass"
+            android:drawablePadding="6dp"/>
 
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:id="@+id/tab_layout"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/back"
         android:minHeight="?attr/actionBarSize">
 
     </android.support.design.widget.TabLayout>

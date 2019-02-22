@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         setContentView(R.layout.activity_main);
 
         TabLayout mTablayout = findViewById(R.id.tab_layout);
-        mTablayout.addTab(mTablayout.newTab().setIcon(R.drawable.ic_home_tab));
+        mTablayout.addTab(mTablayout.newTab().setIcon(R.drawable.ic_homepage));
         mTablayout.addTab(mTablayout.newTab().setIcon(R.drawable.ic_queue_tab));
         mTablayout.addTab(mTablayout.newTab().setIcon(R.drawable.ic_nearby_tab));
         mTablayout.addTab(mTablayout.newTab().setIcon(R.drawable.ic_message_tab));
