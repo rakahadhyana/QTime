@@ -25,14 +25,13 @@
 
         <Button
             android:id="@+id/sign_out"
-            style="?android:textAppearanceSmall"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_primary_dark"
             android:text="@string/sign_out"
             android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_gravity="top|end"/>
 
     </android.support.v7.widget.Toolbar>
 

@@ -83,9 +83,9 @@
                           <map>
                             <entry key="assetSourceType" value="FILE" />
                             <entry key="height" value="50" />
-                            <entry key="outputName" value="ic_homepage" />
+                            <entry key="outputName" value="ic_search" />
                             <entry key="overrideSize" value="true" />
-                            <entry key="sourceFile" value="C:\Users\USER\Pictures\Android Resource\homepage.svg" />
+                            <entry key="sourceFile" value="C:\Users\USER\Pictures\Android Resource\search.svg" />
                             <entry key="width" value="50" />
                           </map>
                         </option>

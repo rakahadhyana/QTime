@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.hmm.q_time">
 
-<<<<<<< HEAD
-    <uses-permission android:name="android.permission.INTERNET"/>
-=======
     <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> 59693ebd8f64dbbd67fe7786a34a1a2d0a757e96
 
     <application
         android:allowBackup="true"
@@ -17,12 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <service
             android:name=".FirebaseIDService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
         <service
@@ -40,14 +37,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity android:name=".DoctorListActivity"></activity>
-=======
+        <activity android:name=".DoctorListActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".GetQueueActivity" />
->>>>>>> 59693ebd8f64dbbd67fe7786a34a1a2d0a757e96
+        <activity android:name=".ActivityGetQueue"/>
     </application>
 
 </manifest>

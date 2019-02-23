@@ -1,6 +1,7 @@
 package com.hmm.q_time;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,14 +21,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
     private static final String TAG = "Recycler Doctor Adapter";
+    private static final String EXTRA_DOCTOR = "Doctor";
 
-    private ArrayList<String> mDoctorNames = new ArrayList<>();
-    private ArrayList<Integer> mDoctorImages = new ArrayList<>();
+
+    private ArrayList<Doctor> mDoctors;
     Context mContext;
 
-    public DoctorAdapter(Context context, ArrayList<String> doctorNames, ArrayList<Integer> doctorImages) {
-        mDoctorNames = doctorNames;
-        mDoctorImages = doctorImages;
+    public DoctorAdapter(Context context, ArrayList<Doctor> doctors) {
+        Log.d(TAG, "DoctorAdapter: Called");
+        mDoctors = doctors;
         mContext = context;
     }
 
@@ -43,23 +45,26 @@ class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         Log.d(TAG, "onBindViewHolder: called.");
 
-        Glide.with(mContext).asBitmap().load(mDoctorImages.get(i)).into(viewHolder.mImage);
+//        Glide.with(mContext).asBitmap().load(mDoctors.get(i).getImageUrl()).into(viewHolder.mImage);
 
-        viewHolder.mImageName.setText(mDoctorNames.get(i));
+        viewHolder.mImageName.setText(mDoctors.get(i).getName());
 
         viewHolder.mParentLayout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on: " + mDoctorNames.get(i));
+                Log.d(TAG, "onClick: clicked on: " + mDoctors.get(i).getName());
+                Intent intent = new Intent(v.getContext(), ActivityGetQueue.class);
 
-                Toast.makeText(mContext, mDoctorNames.get(i), Toast.LENGTH_SHORT).show();
+                intent.putExtra(EXTRA_DOCTOR, mDoctors.get(i));
+                Toast.makeText(mContext, mDoctors.get(i).getName(), Toast.LENGTH_SHORT).show();
+                v.getContext().startActivity(intent);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mDoctorNames.size();
+        return mDoctors.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
