@@ -73,8 +73,6 @@ public class ActivityGetQueue extends AppCompatActivity {
         mDoctorName = findViewById(R.id.doctor_detail_name);
         mDoctorName.setText(mDoctor.getName());
 
-        getQueueNumber();
-
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         mFusedLocationProviderClient.getLastLocation()
                 .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -120,7 +118,7 @@ public class ActivityGetQueue extends AppCompatActivity {
             }
         });
         isOnQueueRequest();
-
+        getQueueNumber();
 
     }
 
@@ -165,11 +163,6 @@ public class ActivityGetQueue extends AppCompatActivity {
                     }else{
                         isInQueue = false;
                     }
-                    if(isInQueue){
-                        mCurrentQueueTextView = findViewById(R.id.current_queue);
-                        mCurrentQueueTextView.setText("Current queue: "+currentQueue);
-                        mCurrentQueueTextView.setTextColor(getResources().getColor(R.color.black));
-                    }
                 }catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -196,6 +189,11 @@ public class ActivityGetQueue extends AppCompatActivity {
                         if(user.equals(auth.getCurrentUser().getEmail())){
                             currentQueue = i + 1;
                         }
+                        if(isInQueue){
+                            mCurrentQueueTextView = findViewById(R.id.current_queue);
+                            mCurrentQueueTextView.setText("Current queue: "+currentQueue);
+                            mCurrentQueueTextView.setTextColor(getResources().getColor(R.color.black));
+                        }
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -207,6 +205,7 @@ public class ActivityGetQueue extends AppCompatActivity {
                 error.printStackTrace();
             }
         });
+        Volley.newRequestQueue(this).add(request);
     }
 
 }
