@@ -110,13 +110,6 @@ public class ActivityGetQueue extends AppCompatActivity {
                 sendPostRequest();
             }
         });
-        mQueueLaterButton = findViewById(R.id.queue_later);
-        mQueueLaterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ActivityGetQueue.this, "QUEUE LATER", Toast.LENGTH_SHORT).show();
-            }
-        });
         isOnQueueRequest();
         getQueueNumber();
 
