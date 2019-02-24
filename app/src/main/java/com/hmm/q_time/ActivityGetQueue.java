@@ -129,6 +129,8 @@ public class ActivityGetQueue extends AppCompatActivity {
                 public void onResponse(JSONObject response) {
                     Log.d(TAG, "request sent");
                     Toast.makeText(getApplicationContext(), "Request sent", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -181,8 +183,6 @@ public class ActivityGetQueue extends AppCompatActivity {
                         String user = queue.getString("user");
                         if(user.equals(auth.getCurrentUser().getEmail())){
                             currentQueue = i + 1;
-                        }
-                        if(isInQueue){
                             mCurrentQueueTextView = findViewById(R.id.current_queue);
                             mCurrentQueueTextView.setText("Current queue: "+currentQueue);
                             mCurrentQueueTextView.setTextColor(getResources().getColor(R.color.black));
