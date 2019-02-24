@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
+    private static final String EXTRA_EMAIL = "Email";
 
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
@@ -35,7 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            String currentEmail = auth.getCurrentUser().getEmail();
+            intent.putExtra(EXTRA_EMAIL, currentEmail);
+            startActivity(intent);
             finish();
         }
 
