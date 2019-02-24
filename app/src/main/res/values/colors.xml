@@ -3,7 +3,8 @@
     <color name="colorPrimary">#fdfdfe</color>
     <color name="colorPrimaryDark">#808fa4</color>
     <color name="colorAccent">#ffffff</color>
-
+    <color name="chat_button">#759B90</color>
+    <color name="queue_text">#054E2E</color>
     <color name="bg_login">#35AD94</color>
     <color name="bg_register">#2e3237</color>
     <color name="bg_main">#44C6D5</color>
