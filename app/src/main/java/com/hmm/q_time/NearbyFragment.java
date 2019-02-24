@@ -1,20 +1,22 @@
 package com.hmm.q_time;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link NearbyFragment.OnFragmentInteractionListener} interface
+ * {@link MessageFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link NearbyFragment#newInstance} factory method to
+ * Use the {@link MessageFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class NearbyFragment extends Fragment {
@@ -26,6 +28,7 @@ public class NearbyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private Button mNearbyButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -39,7 +42,7 @@ public class NearbyFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment NearbyFragment.
+     * @return A new instance of fragment MessageFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static NearbyFragment newInstance(String param1, String param2) {
@@ -63,8 +66,16 @@ public class NearbyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nearby, container, false);
+        View v = inflater.inflate(R.layout.fragment_nearby, container, false);
+        mNearbyButton = v.findViewById(R.id.nearby_button);
+        mNearbyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(getContext(), ServiceActivity.class);
+                startActivity(mIntent);
+            }
+        });
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
