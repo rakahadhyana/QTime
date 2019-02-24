@@ -7,14 +7,16 @@ public class Doctor implements Parcelable {
     private String mId;
     private String mName;
     private String mType;
-    private String mLocation;
+    private String mLatitude;
+    private String mLongitude;
     private String mImageUrl;
 
-    public Doctor(String id, String name, String type, String location, String imageUrl) {
+    public Doctor(String id, String name, String type, String latitude, String longitude, String imageUrl) {
         mId = id;
         mName = name;
         mType = type;
-        mLocation = location;
+        mLatitude = latitude;
+        mLongitude = longitude;
         mImageUrl = imageUrl;
     }
 
@@ -22,7 +24,8 @@ public class Doctor implements Parcelable {
         mId = in.readString();
         mName = in.readString();
         mType = in.readString();
-        mLocation = in.readString();
+        mLatitude = in.readString();
+        mLongitude = in.readString();
         mImageUrl = in.readString();
     }
 
@@ -62,12 +65,20 @@ public class Doctor implements Parcelable {
         mType = type;
     }
 
-    public String getLocation() {
-        return mLocation;
+    public String getLatitude() {
+        return mLatitude;
     }
 
-    public void setLocation(String location) {
-        mLocation = location;
+    public void setLatitude(String latitude) {
+        mLatitude = latitude;
+    }
+
+    public String getLongitude() {
+        return mLongitude;
+    }
+
+    public void setLongitude(String longitude) {
+        mLongitude = longitude;
     }
 
     public String getImageUrl() {
@@ -88,7 +99,8 @@ public class Doctor implements Parcelable {
         dest.writeString(mId);
         dest.writeString(mName);
         dest.writeString(mType);
-        dest.writeString(mLocation);
+        dest.writeString(mLatitude);
+        dest.writeString(mLongitude);
         dest.writeString(mImageUrl);
     }
 }

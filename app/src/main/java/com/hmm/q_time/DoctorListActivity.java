@@ -41,33 +41,6 @@ public class DoctorListActivity extends AppCompatActivity {
         jsonParse();
 
         Log.d(TAG, "initSeedDoctorCalled");
-
-        mDoctorNames.add("Raka Hadhyana");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Timothy Sihombing");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Nira Rizki Ramadhani");
-        mDoctorImages.add(R.drawable.ic_doctor_f);
-
-        mDoctorNames.add("Raka Hadhyana");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Timothy Sihombing");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Nira Rizki Ramadhani");
-        mDoctorImages.add(R.drawable.ic_doctor_f);
-
-        mDoctorNames.add("Raka Hadhyana");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Timothy Sihombing");
-        mDoctorImages.add(R.drawable.ic_doctor);
-
-        mDoctorNames.add("Nira Rizki Ramadhani");
-        mDoctorImages.add(R.drawable.ic_doctor_f);
     }
 
     private void jsonParse(){
@@ -86,9 +59,11 @@ public class DoctorListActivity extends AppCompatActivity {
                                 String id = doctor.getString("_id");
                                 String name = doctor.getString("name");
                                 String type = doctor.getString("type");
-                                String location = doctor.getString("location");
+                                JSONObject location = doctor.getJSONObject("location");
+                                String latitude = location.getString("latitude");
+                                String longitude = location.getString("longitude");
                                 String imageUrl = doctor.getString("image");
-                                Doctor newDoctor = new Doctor(id, name, type, location, imageUrl);
+                                Doctor newDoctor = new Doctor(id, name, type, latitude, longitude, imageUrl);
                                 mDoctors.add(newDoctor);
                                 Log.d(TAG, name + ", " + type + ", " + location + ", " + imageUrl);
                             }
