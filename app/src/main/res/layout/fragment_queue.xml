@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".QueueFragment">
 
     <LinearLayout
+        android:id="@+id/doctor_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -26,17 +28,9 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_doctor"/>
 
-            <TextView
-                android:paddingLeft="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Doctor"
-                android:fontFamily="@font/bahnschrift"
-                android:textColor="#000"/>
 
             <TextView
                 android:id="@+id/doctor_detail_name"
-                android:textColor="#000"
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,6 +51,36 @@
                 android:fontFamily="@font/bahnschrift"
                 android:text="Current queue"/>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="17dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:layout_marginRight="10dp"
+                    android:tooltipText="CANCEL"
+                    android:src="@drawable/ic_cance" />
+
+                <ImageButton
+                    android:id="@+id/done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:tooltipText="DONE"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_done" />
+
+            </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
+
+
 </FrameLayout>

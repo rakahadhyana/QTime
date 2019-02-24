@@ -46,6 +46,7 @@
             android:background="@drawable/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="15dp"
             android:orientation="vertical">
 
             <TextView
@@ -73,18 +74,13 @@
                 android:text="Queue number"/>
 
             <TextView
+                android:id="@+id/current_queue"
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bahnschrift"
                 android:text="Current queue"/>
-            
-            <TextView
-                android:paddingLeft="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bahnschrift"
-                android:text="Average Waiting time"/>
+
 
         </LinearLayout>
 
@@ -128,14 +124,14 @@
             android:text="QUEUE NOW!"
             android:textSize="10sp" />
 
-        <Button
-            android:id="@+id/queue_later"
-            android:layout_width="194dp"
-            android:layout_height="164dp"
-            android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/ic_calendar"
-            android:text="BOOK FOR LATER"
-            android:textSize="10sp" />
+        <!--<Button-->
+            <!--android:id="@+id/queue_later"-->
+            <!--android:layout_width="194dp"-->
+            <!--android:layout_height="164dp"-->
+            <!--android:backgroundTint="@color/white"-->
+            <!--android:drawableTop="@drawable/ic_calendar"-->
+            <!--android:text="BOOK FOR LATER"-->
+            <!--android:textSize="10sp" />-->
 
     </LinearLayout>
 
