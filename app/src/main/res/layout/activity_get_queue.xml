@@ -46,16 +46,16 @@
             android:background="@drawable/back"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="15dp"
+            android:paddingTop="24dp"
             android:orientation="vertical">
 
             <TextView
                 android:paddingLeft="4dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Doctor"
+                android:text="Doctor:"
                 android:fontFamily="@font/bahnschrift"
-                android:textColor="#000"/>
+                android:textColor="@color/queue_text">
 
             <TextView
                 android:id="@+id/doctor_detail_name"
@@ -67,18 +67,12 @@
                 android:text="Name"/>
 
             <TextView
-                android:paddingLeft="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/bahnschrift"
-                android:text="Queue number"/>
-
-            <TextView
                 android:id="@+id/current_queue"
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/bahnschrift"
+                android:textColor="@color/queue_text"
                 android:text="Current queue"/>
 
 
@@ -124,14 +118,6 @@
             android:text="QUEUE NOW!"
             android:textSize="10sp" />
 
-        <!--<Button-->
-            <!--android:id="@+id/queue_later"-->
-            <!--android:layout_width="194dp"-->
-            <!--android:layout_height="164dp"-->
-            <!--android:backgroundTint="@color/white"-->
-            <!--android:drawableTop="@drawable/ic_calendar"-->
-            <!--android:text="BOOK FOR LATER"-->
-            <!--android:textSize="10sp" />-->
 
     </LinearLayout>
 
