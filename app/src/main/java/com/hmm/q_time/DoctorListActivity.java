@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,13 +28,17 @@ public class DoctorListActivity extends AppCompatActivity {
     private ArrayList<String> mDoctorNames = new ArrayList<>();
     private ArrayList<Integer> mDoctorImages = new ArrayList<>();
     private ArrayList<Doctor> mDoctors = new ArrayList<>();
+    private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_list);
+        spinner = (ProgressBar)findViewById(R.id.progressBar1);
+        spinner.setVisibility(View.VISIBLE);
         Log.d(TAG, "onCreate: started.");
         initSeedDoctor();
+
 
     }
 
@@ -67,6 +73,7 @@ public class DoctorListActivity extends AppCompatActivity {
                                 mDoctors.add(newDoctor);
                                 Log.d(TAG, name + ", " + type + ", " + location + ", " + imageUrl);
                             }
+                            spinner.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
