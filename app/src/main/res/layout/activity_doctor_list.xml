@@ -7,6 +7,13 @@
     tools:context=".DoctorListActivity">
 
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/doctor_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:scrollbars="vertical" />
+
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,12 +40,5 @@
         android:fontFamily="@font/bahnschrift"
         android:textSize="30dp"
         android:padding="16dp"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/doctor_recycler_view"
-        android:scrollbars="vertical"
-        android:padding="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </LinearLayout>
