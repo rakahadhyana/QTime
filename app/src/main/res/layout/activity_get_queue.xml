@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="Doctor:"
                 android:fontFamily="@font/bahnschrift"
-                android:textColor="@color/queue_text">
+                android:textColor="@color/queue_text"/>
 
             <TextView
                 android:id="@+id/doctor_detail_name"
@@ -75,11 +75,8 @@
                 android:textColor="@color/queue_text"
                 android:text="Current queue"/>
 
-
         </LinearLayout>
-
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/location"
         android:layout_width="match_parent"
@@ -117,8 +114,5 @@
             android:drawableTop="@drawable/ic_checked"
             android:text="QUEUE NOW!"
             android:textSize="10sp" />
-
-
     </LinearLayout>
-
 </LinearLayout>
