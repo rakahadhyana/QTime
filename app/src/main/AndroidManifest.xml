@@ -4,8 +4,11 @@
     package="com.hmm.q_time">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-feature android:name="android.hardware.sensor.proximity"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.luminosity"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MessageActivity"></activity>
 
         <service
             android:name=".FirebaseIDService"
@@ -32,18 +36,18 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service> <!-- <activity android:name=".ProfileActivity"/> -->
-        <activity android:name=".SignupActivity">
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".DoctorListActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DoctorListActivity" />
-        <activity android:name=".LoginActivity" />
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ActivityGetQueue"/>
+        <activity android:name=".ActivityGetQueue" />
     </application>
 
 </manifest>

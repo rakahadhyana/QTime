@@ -46,5 +46,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-places:16.0.0'
     implementation "com.google.firebase:firebase-measurement-connector-impl:17.0.5"
 
+    implementation 'com.scaledrone:scaledrone-java:0.6.0'
+
 
 }
