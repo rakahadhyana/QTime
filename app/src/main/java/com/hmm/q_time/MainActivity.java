@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         QueueFragment.OnFragmentInteractionListener, NearbyFragment.OnFragmentInteractionListener,
         MessageFragment.OnFragmentInteractionListener, ProfileFragment.OnFragmentInteractionListener{
 
-    private Button signOut;
+    private ImageButton signOut;
 
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;

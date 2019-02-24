@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ActivityGetQueue">
 
@@ -10,8 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/toolbar"
+        android:backgroundTint="@color/white"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"
@@ -23,22 +25,13 @@
             android:drawableStart="@drawable/ic_hourglass"
             android:drawablePadding="6dp"/>
 
-        <Button
-            android:id="@+id/sign_out"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_primary_dark"
-            android:text="@string/sign_out"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_gravity="top|end"/>
-
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:paddingTop="100dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <ImageView
@@ -60,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Doctor"
+                android:fontFamily="@font/bahnschrift"
                 android:textColor="#000"/>
 
             <TextView
@@ -68,24 +62,28 @@
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bahnschrift"
                 android:text="Name"/>
 
             <TextView
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bahnschrift"
                 android:text="Queue number"/>
 
             <TextView
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bahnschrift"
                 android:text="Current queue"/>
             
             <TextView
                 android:paddingLeft="4dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bahnschrift"
                 android:text="Average Waiting time"/>
 
         </LinearLayout>
@@ -100,16 +98,17 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:padding="6dp"
-            android:src="@drawable/ic_search"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:src="@drawable/ic_search" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Check Location"
-            android:gravity="center"/>
+            android:fontFamily="@font/bahnschrift"
+            android:gravity="center"
+            android:text="Check Location" />
 
     </LinearLayout>
 
@@ -117,12 +116,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@color/white"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/queue_now"
             android:layout_width="187dp"
             android:layout_height="164dp"
+            android:backgroundTint="@color/white"
             android:drawableTop="@drawable/ic_checked"
             android:text="QUEUE NOW!"
             android:textSize="10sp" />
@@ -131,6 +132,7 @@
             android:id="@+id/queue_later"
             android:layout_width="194dp"
             android:layout_height="164dp"
+            android:backgroundTint="@color/white"
             android:drawableTop="@drawable/ic_calendar"
             android:text="BOOK FOR LATER"
             android:textSize="10sp" />
