@@ -2,7 +2,10 @@ package com.hmm.q_time;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -32,12 +35,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
 
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-    private ShakeDetector mShakeDetector;
-
-    private TextView tvShake;
-    private Button btn;
+    private SensorManager sensorManager;
+    private Sensor lightSensor;
+    private SensorEventListener lightEventListener;
+    private View root;
+    private float maxValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,25 +104,41 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             }
         });
 
+        root = findViewById(R.id.view_pager);
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
 
-        // ShakeDetector initialization
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeDetector();
-        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+        if (lightSensor == null) {
+            Toast.makeText(this, "The device has no light sensor !", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+        // max value for light sensor
+        maxValue = lightSensor.getMaximumRange();
+
+        lightEventListener = new SensorEventListener() {
+            @Override
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                float value = sensorEvent.values[0];
+
+                // between 0 and 255
+                if (value > 40 && value < 100) {
+                    int newValue = (int) (255f * value / maxValue);
+                    root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
+                } else if (value > 100) {
+                    int newValue = (int) (255f * value / maxValue);
+                    root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
+                } else {
+                    int newValue = (int) (255f * value / maxValue);
+                    root.setBackgroundColor(Color.rgb(newValue, newValue, newValue));
+                }
+            }
 
             @Override
-            public void onShake(int count) {
-                /*
-                 * The following method, "handleShakeEvent(count):" is a stub //
-                 * method you would use to setup whatever you want done once the
-                 * device has been shook.
-                 */
-                tvShake.setText("Shake Action is just detected!!");
-                Toast.makeText(MainActivity.this, "Shaked!!!", Toast.LENGTH_SHORT).show();
+            public void onAccuracyChanged(Sensor sensor, int i) {
+
             }
-        });
+        };
     }
 
     @Override
@@ -145,5 +163,17 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         if (authListener != null) {
             auth.removeAuthStateListener(authListener);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        sensorManager.registerListener(lightEventListener, lightSensor, SensorManager.SENSOR_DELAY_FASTEST);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(lightEventListener);
     }
 }
