@@ -47,6 +47,4 @@ dependencies {
     implementation "com.google.firebase:firebase-measurement-connector-impl:17.0.5"
 
     implementation 'com.scaledrone:scaledrone-java:0.6.0'
-
-
 }
