@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,7 @@ public class QueueFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = "QueueFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -57,6 +60,7 @@ public class QueueFragment extends Fragment {
     private String doctorId;
     private int currentQueue;
     private Boolean isInQueue;
+    private String mIdQueue;
 
     public QueueFragment() {
         // Required empty public constructor
@@ -94,8 +98,12 @@ public class QueueFragment extends Fragment {
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         isOnQueueRequest();
+    }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        isOnQueueRequest();
     }
 
     @Override
@@ -109,7 +117,8 @@ public class QueueFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Done Request
-                Toast.makeText(getContext(),"DONE",Toast.LENGTH_SHORT).show();
+                doneQueueRequest();
+                Toast.makeText(getContext(),"Thanks for your patient",Toast.LENGTH_SHORT).show();
             }
         });
         mButtonCancel = v.findViewById(R.id.cancel);
@@ -118,6 +127,7 @@ public class QueueFragment extends Fragment {
             public void onClick(View v) {
                 //Cancel Request
                 Toast.makeText(getContext(),"CANCEL",Toast.LENGTH_SHORT).show();
+                doneQueueRequest();
             }
         });
         mNameTextView = v.findViewById(R.id.doctor_detail_name);
@@ -171,6 +181,7 @@ public class QueueFragment extends Fragment {
             public void onResponse(JSONObject response) {
                 try {
                     JSONObject queue = response.getJSONObject("queue");
+                    mIdQueue = queue.getString("_id");
                     doctorId = queue.getString("doctor");
                     mNameTextView.setText(doctorId);
                     if(queue != null){
@@ -206,7 +217,7 @@ public class QueueFragment extends Fragment {
                             currentQueue = i + 1;
                             mCurrentQueue.setText("Current queue: "+currentQueue);
                             mCurrentQueue.setTextColor(getResources().getColor(R.color.black));
-                            if(currentQueue == 0){
+                            if(currentQueue == 1){
                                 mButtonDone.setEnabled(true);
                             }
                         }
@@ -222,6 +233,31 @@ public class QueueFragment extends Fragment {
             }
         });
         Volley.newRequestQueue(getContext()).add(request);
+    }
+
+    private void doneQueueRequest(){
+        try {
+            String URL = "https://qtime-android.herokuapp.com/api/queue/done";
+            JSONObject jsonBody = new JSONObject();
+
+            jsonBody.put("_id", mIdQueue);
+            jsonBody.put("done", "true");
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonBody, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.detach(QueueFragment.this).attach(QueueFragment.this).commit();
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    error.printStackTrace();
+                }
+            });
+            Volley.newRequestQueue(getContext()).add(request);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
     }
 
 }
